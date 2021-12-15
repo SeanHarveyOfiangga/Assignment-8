@@ -9,12 +9,14 @@
 
 import random
 
-
+# intro
 def intro():
     print("\n\033[47m\033[30m**Welcome to Lottery App**\033[0m")
 intro()
 
+#user bet input
 def lottobet():
+    #instruction
     print("""\n\033[01m0-9 LOTTO BETTING INSTRUCTION:\033[0m
     \033[01m\033[36m>>\033[0m Enter your \033[32mthree number combination\033[0m from \033[04m0-9\033[0m as your bet
     \033[01m\033[36m>>\033[0m Winners will receive \033[93m5,000,000 PHP\033[0m
@@ -37,33 +39,44 @@ def lottobet():
         entry += 1
     return combination
 
+#winning combination generator
 def winningcombi():
     win = []
     combi = random.sample(range(0,9),3)
     win.append(combi)
     return win
 
+#win checker - checks if your bet is same with the winning combination
 def winchecker(bet, win):
-    print("Your bet combination is:", bet)
-    print("The winning combination is:", win)
+    print("\nYour bet combination is:\033[32m", bet,'\033[0m')
+    print("The winning combination is:\033[32m", win,'\033[0m')
     if bet == win:
         print("Congratulations!")
         print("You win 5,000,000 PHP")
     else:
-        print("That was quite close.")
+        print("\nThat was quite close.")
 
+#try again loop
 def tryagain():
     while True:
-        tryagain = input("Want to try again?: ").lower()
-        if tryagain(0) == 'y':
-            print("This is it, you'll get it this time.")
+        tryagain = input("\n\033[95mWant to try again?:\033[0m ").lower()
+        if tryagain[0] == 'y':
+            print("\nThis is it, you'll get it this time.")
             print("Good luck!")
             main()
-        elif tryagain(0) == 'n':
-            print("Maybe luck is not on your side this time")
-            print("Try again, next time. Bye!")
+        if tryagain[0] == 'n':
+            print("\n\033[47m\033[30mMaybe luck is not on your side this time")
+            print("Try again next time, Bye!\033[0m")
             exit()
-        elif tryagain != 'y' or 'n':
+        elif tryagain != 'yes' or 'no':
             print("Invalid input, please answer 'Yes' or 'No'")   
             continue
 
+#main call function
+def main():
+    usercombi = lottobet()
+    wincombi = winningcombi()
+    winchecker(usercombi, wincombi)
+    tryagain()
+
+main()
