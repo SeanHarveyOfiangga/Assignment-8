@@ -13,17 +13,26 @@ intro()
 
 def number():
     print("""\n\033[01mHow to play Guess the number?\033[0m
-    \033[01m\033[36m>>\033[0m \033[33mRandom number from \033[04m0-100\033[0m will be generated and the user will guess what is the number.\033[0m
+    \033[01m\033[36m>>\033[0m \033[33mRandom number from \033[04m0-100\033[0m \033[33mwill be generated and the user will guess what is the number.\033[0m
     \033[01m\033[36m>>\033[0m \033[33mThe program will say if the guess is higher or lower than the unknown number.\033[0m
     \033[01m\033[36m>>\033[0m \033[33mIf the guess matched the unknown number, user will be declared as the winner.\033[0m
     *********************************************************************************""")
     Name = input("I am Guess.bot and you are?: ")
     print(f"""\nHello {Name}, are you ready? Let's Start.
     Here is your unknown number: ?""")
+    number = random.randint(0,100)
     while True:
         try:
-            guess = input("What is your guess?: ")
+            guess = int(input("\nWhat is your guess?: "))
         except ValueError:
             print("Your answer is empty")
-            continue      
+            continue
+        if guess > number:
+            print("Your guess is greater than the unknown number.")
+            continue
+        elif guess < number:
+            print("Your guess is less than the unknown number.")
+            continue
+        elif guess == number:
+            print("Congratulations!")
 number()
