@@ -13,16 +13,22 @@ intro()
 
 def userbet():
     print("""\n\033[01m0-9 LOTTO BETTING INSTRUCTION:\033[0m
-    \033[01m\033[36m>>\033[0m For each bet you must pay \033[04m\033[95m20 PHP\033[0m
     \033[01m\033[36m>>\033[0m Enter your \033[32mthree number combination\033[0m from \033[04m0-9\033[0m as your bet
     \033[01m\033[36m>>\033[0m Winners will receive \033[93m5,000,000 PHP\033[0m
     """)
     entry = 1
+    combination = []
     while entry <= 3:
         try:
             bet = int(input(f"\033[33mEnter your bet number " + str(entry) + ": \033[0m"))
         except ValueError:
             print("\033[91mERROR! You entered an invalid value.\n\033[0m")
             continue
+        if bet >= 10:
+            print("\033[91mYour bet is over the limit, please enter your bet again.\n\033[0m")
+            continue
+        if bet not in combination:
+            combination.append(bet)    
         entry += 1
+    print(combination)
 userbet()
