@@ -52,3 +52,18 @@ def winchecker(bet, win):
     else:
         print("That was quite close.")
 
+def tryagain():
+    while True:
+        tryagain = input("Want to try again?: ").lower()
+        if tryagain(0) == 'y':
+            print("This is it, you'll get it this time.")
+            print("Good luck!")
+            main()
+        elif tryagain(0) == 'n':
+            print("Maybe luck is not on your side this time")
+            print("Try again, next time. Bye!")
+            exit()
+        elif tryagain != 'y' or 'n':
+            print("Invalid input, please answer 'Yes' or 'No'")   
+            continue
+
