@@ -17,6 +17,13 @@ def number():
     \033[01m\033[36m>>\033[0m \033[33mThe program will say if the guess is higher or lower than the unknown number.\033[0m
     \033[01m\033[36m>>\033[0m \033[33mIf the guess matched the unknown number, user will be declared as the winner.\033[0m
     *********************************************************************************""")
-    
-
+    Name = input("I am Guess.bot and you are?: ")
+    print(f"""\nHello {Name}, are you ready? Let's Start.
+    Here is your unknown number: ?""")
+    while True:
+        try:
+            guess = input("What is your guess?: ")
+        except ValueError:
+            print("Your answer is empty")
+            continue      
 number()
