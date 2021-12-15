@@ -43,3 +43,12 @@ def winningcombi():
     win.append(combi)
     return win
 
+def winchecker(bet, win):
+    print("Your bet combination is:", bet)
+    print("The winning combination is:", win)
+    if bet == win:
+        print("Congratulations!")
+        print("You win 5,000,000 PHP")
+    else:
+        print("That was quite close.")
+
