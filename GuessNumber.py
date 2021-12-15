@@ -17,22 +17,23 @@ def number():
     \033[01m\033[36m>>\033[0m \033[33mThe program will say if the guess is higher or lower than the unknown number.\033[0m
     \033[01m\033[36m>>\033[0m \033[33mIf the guess matched the unknown number, user will be declared as the winner.\033[0m
     *********************************************************************************""")
-    Name = input("I am Guess.bot and you are?: ")
-    print(f"""\nHello {Name}, are you ready? Let's Start.
+    Name = input("I am \033[01m\033[32mGuess.bot\033[0m and you are?: ")
+    print(f"""\nHello \033[01m\033[35m{Name}\033[0m, are you ready? Let's Start.
     Here is your unknown number: ?""")
     number = random.randint(0,100)
     while True:
         try:
-            guess = int(input("\nWhat is your guess?: "))
+            guess = int(input("\n\033[36mWhat is your guess?: \033[0m"))
         except ValueError:
-            print("Your answer is empty")
+            print("\033[31m\033[01mError, you entered invalid input\033[0m")
             continue
         if guess > number:
-            print("Your guess is greater than the unknown number.")
+            print("\033[31m\033[01mYour guess is greater than the unknown number.\033[0m")
             continue
         elif guess < number:
-            print("Your guess is less than the unknown number.")
+            print("\033[31m\033[01mYour guess is less than the unknown number.\033[0m")
             continue
         elif guess == number:
-            print("Congratulations!")
+            print("\033[01m\033[32mYou got it right, Congratulations!\033[0m")
+            exit()
 number()
